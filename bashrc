@@ -2,10 +2,17 @@
 
 BASHRC_LOADED=true
 
-cpsix () {
-    scp $1 johnsong@six11.org:$2
-}
-
+# 'classpath munge' for adding a a jar or directory to the classpath.
+# Use the second argument 'after' if you want to place the new entry
+# at the end. Otherwise the entry is placed at the front.
+#
+# example:
+#
+#  cpmunge foo.jar
+#  cpmunge /home/johnsogg/proj
+#  cpmunge bar.jar after
+#
+# This will result in CLASSPATH = "/home/johnsogg/proj:foo.jar:bar.jar"
 cpmunge () {
         if ! echo $CLASSPATH | grep -q "(^|:)$1($|:)" ; then
            if [ "$2" = "after" ] ; then
@@ -16,6 +23,30 @@ cpmunge () {
         fi
 }
 
+# Add all the jars in the input directory to the classpath. This uses
+# the cpmunge function above.
+#
+# example:
+# 
+#  addjars /home/johnsogg/proj/lib
+addjars () {
+    for thejar in $1/*.jar
+      do
+      if [ -f "$thejar" ]; then
+          cpmunge "$thejar"
+      fi
+    done
+}
+
+# Add something to the PATH environment variable. By default the new entry
+# will go at the end. If you need it to go at the beginning, use 'before' as
+# the second argument. Example:
+#
+#  pathmunge /usr/local/bin
+#  pathmunge /opt/bin
+#  pathmunge $HOME/bin before
+#
+# This results in PATH = /home/johnsogg/bin:/usr/local/bin:/opt/bin
 pathmunge () {
         if ! echo $PATH | grep -q "(^|:)$1($|:)" ; then
            if [ "$2" = "before" ] ; then
@@ -24,15 +55,6 @@ pathmunge () {
               PATH=$PATH:$1
            fi
         fi
-}
-
-addjars () {
-    for thejar in $1/*.jar
-      do
-      if [ -f "$thejar" ]; then
-          cpmunge "$thejar"
-      fi
-    done
 }
 
 # Source global definitions
@@ -67,7 +89,6 @@ fi
 PS1="$C6\w$C4 $ $P"
 
 export SVN_EDITOR=vi
-export RUBYLIB=~/bin
 
 # Get the aliases and functions if not loaded yet
 if [ -z $BASH_PROFILE_LOADED ] && [ -f ~/.bash_profile ]; then
