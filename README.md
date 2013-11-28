@@ -1,7 +1,8 @@
-Assuming you check out the git repo locally to ~/dotfiles, here's the
-commands to link files (just a couple examples):
+To install, try the 'install.sh' script.
 
-cd ~
-ln -s dotfiles/bash_profile .bash_profile
-ln -s dotfiles/bashrc .bashrc
+There's also my Apple terminal settings. To use:
+
+    Terminal > Preferences > Settings > Gear Icon Thing > Import...
+	
+Then select the `.terminal` file.
 
