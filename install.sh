@@ -11,6 +11,7 @@ remove_files ()
     echo "Removing existing files..."
     rm -fv ~/.bash_profile
     rm -fv ~/.bashrc
+    rm -fv ~/.gemrc
 }
 
 link_files ()
@@ -18,10 +19,11 @@ link_files ()
     echo "Linking files..."
     ln -sv $DIR/bash_profile ~/.bash_profile
     ln -sv $DIR/bashrc ~/.bashrc
+    ln -sv $DIR/gemrc ~/.gemrc
 }
 
 
-echo "This will erase your ~/.bash_profile and ~/.bashrc files"
+echo "This will erase your ~/.bash_profile, .bashrc, and .gemrc files"
 echo "and create symlinks to the versions in this directory:"
 echo $DIR
 echo ""
