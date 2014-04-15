@@ -100,3 +100,6 @@ export CLICOLOR=1
 
 # see http://geoff.greer.fm/lscolors/ for info on this.
 export LSCOLORS=gxfxcxdxCxegedabagacad
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

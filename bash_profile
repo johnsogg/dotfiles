@@ -4,7 +4,8 @@ BASH_PROFILE_LOADED=true
 if [ -z $BASHRC_LOADED ] && [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
-pathmunge /usr/local/bin
+pathmunge $HOME/.rbenv/shims before
+pathmunge /usr/local/bin before
 pathmunge $HOME/bin
 pathmunge /usr/local/ant/bin
 
