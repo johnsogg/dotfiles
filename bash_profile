@@ -31,9 +31,12 @@ P="\[\033[0m\]" # Neutral
 #   ------------------------------------------------------------
     export PS1="$C6\w$C4 $ $P"
 
+export GOPATH=/Users/johnsogg/Projects/go
+
 #   Set Paths
 #   ------------------------------------------------------------
 pathmunge /usr/local/heroku/bin
+pathmunge $GOPATH/bin
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
@@ -44,6 +47,8 @@ pathmunge /usr/local/heroku/bin
 #   ------------------------------------------------------------
     export BLOCKSIZE=1k
 
+
+export GOPATH=/Users/johnsogg/Projects/go/
 #
 # Aliases
 #
