@@ -37,8 +37,9 @@ export GOPATH=/Users/johnsogg/Projects/go
 #   ------------------------------------------------------------
 pathmunge /usr/local/heroku/bin
 pathmunge $GOPATH/bin
+pathmunge $HOME/bin
 
-#   Set Default Editor (change 'Nano' to the editor of your choice)
+#   Set Default Editor 
 #   ------------------------------------------------------------
     export EDITOR=/usr/bin/vim
 
@@ -63,6 +64,8 @@ trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the 
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
+githist () { git log --all --stat -- "*$1*" ; } # githist myfile: Search through git history for a file
+foob() { echo "Did the thing *$1*" ; pwd ; }
 
 #   extract:  Extract most known archives with one command
 #   ---------------------------------------------------------
