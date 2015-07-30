@@ -54,6 +54,7 @@ export GOPATH=/Users/johnsogg/Projects/go/
 # Aliases
 #
 
+alias recent='cd `most_recent_app_dir.sh`'  # Go to most recent iOS app directory
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
