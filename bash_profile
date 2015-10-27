@@ -50,6 +50,7 @@ pathmunge $HOME/bin
 
 
 export GOPATH=/Users/johnsogg/Projects/go/
+    
 #
 # Aliases
 #
