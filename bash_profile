@@ -29,27 +29,28 @@ P="\[\033[0m\]" # Neutral
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    export PS1="$C6\w$C4 $ $P"
+export PS1="$C6\w$C4 $ $P"
 
+#   golang related variables
 export GOPATH=/Users/johnsogg/Projects/go
+
+#   Zoteserver env vars
+export SKETCHES_PATH=~/sketches
 
 #   Set Paths
 #   ------------------------------------------------------------
-pathmunge /usr/local/heroku/bin
 pathmunge $GOPATH/bin
 pathmunge $HOME/bin
 
 #   Set Default Editor 
 #   ------------------------------------------------------------
-    export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
 #   ------------------------------------------------------------
-    export BLOCKSIZE=1k
-
-
-export GOPATH=/Users/johnsogg/Projects/go/
+export BLOCKSIZE=1k
+    
     
 #
 # Aliases
@@ -71,9 +72,9 @@ foob() { echo "Did the thing *$1*" ; pwd ; }
 
 #   extract:  Extract most known archives with one command
 #   ---------------------------------------------------------
-    extract () {
-        if [ -f $1 ] ; then
-          case $1 in
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
             *.tar.bz2)   tar xjf $1     ;;
             *.tar.gz)    tar xzf $1     ;;
             *.bz2)       bunzip2 $1     ;;
@@ -86,11 +87,11 @@ foob() { echo "Did the thing *$1*" ; pwd ; }
             *.Z)         uncompress $1  ;;
             *.7z)        7z x $1        ;;
             *)     echo "'$1' cannot be extracted via extract()" ;;
-             esac
-         else
-             echo "'$1' is not a valid file"
-         fi
-    }
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 
 alias qfind="find . -name "                 # qfind:    Quickly search for file
@@ -101,31 +102,31 @@ alias qfind="find . -name "                 # qfind:    Quickly search for file
 #       E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'
 #       Without the 'sudo' it will only find processes of the current user
 #   -----------------------------------------------------
-    findPid () { lsof -t -c "$@" ; }
+findPid () { lsof -t -c "$@" ; }
 
 #   memHogsTop, memHogsPs:  Find memory hogs
 #   -----------------------------------------------------
-    alias hogsMemTop='top -l 1 -o rsize | head -20'
-    alias hogsMemPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+alias hogsMemTop='top -l 1 -o rsize | head -20'
+alias hogsMemPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 
 #   cpuHogs:  Find CPU hogs
 #   -----------------------------------------------------
-    alias hogsCPU='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
-
+alias hogsCPU='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
+    
 #   topForever:  Continual 'top' listing (every 10 seconds)
 #   -----------------------------------------------------
-    alias topForever='top -l 9999999 -s 10 -o cpu'
+alias topForever='top -l 9999999 -s 10 -o cpu'
 
 #   ttop:  Recommended 'top' invocation to minimize resources
 #   ------------------------------------------------------------
 #       Taken from this macosxhints article
 #       http://www.macosxhints.com/article.php?story=20060816123853639
 #   ------------------------------------------------------------
-    alias ttop="top -R -F -s 10 -o rsize"
+alias ttop="top -R -F -s 10 -o rsize"
 
 #   my_ps: List processes owned by my user:
 #   ------------------------------------------------------------
-    my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
+my_ps() { ps $@ -u $USER -o pid,%cpu,%mem,start,time,bsdtime,command ; }
 
 alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address
 alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
@@ -140,14 +141,14 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
-    alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
 
 #   finderShowHidden:   Show hidden files in Finder
 #   finderHideHidden:   Hide hidden files in Finder
 #   -------------------------------------------------------------------
-    alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
-    alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
+alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
+alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 
 #    screensaverDesktop: Run a screensaver on the Desktop
 #   -----------------------------------------------------------------------------------
-    alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
+alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
