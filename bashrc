@@ -61,3 +61,9 @@ pathmunge () {
 if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
+
+# added by travis gem
+[ -f /Users/johnsogg/.travis/travis.sh ] && source /Users/johnsogg/.travis/travis.sh
+
+export NVM_DIR="/Users/johnsogg/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

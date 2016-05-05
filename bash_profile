@@ -42,6 +42,10 @@ export SKETCHES_PATH=~/sketches
 pathmunge $GOPATH/bin
 pathmunge $HOME/bin
 
+#   Java classpath
+#   ------------------------------------------------------------
+cpmunge /usr/local/lib/antlr-4.5.2-complete.jar
+
 #   Set Default Editor 
 #   ------------------------------------------------------------
 export EDITOR=/usr/bin/vim
