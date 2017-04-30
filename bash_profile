@@ -33,14 +33,17 @@ export PS1="$C6\w$C4 $ $P"
 
 #   golang related variables
 export GOPATH=/Users/johnsogg/Projects/go
-
-#   Zoteserver env vars
-export SKETCHES_PATH=~/sketches
+export GOROOT=/usr/local/go
+pathmunge $GOPATH/bin
+pathmunge $GOROOT/bin
 
 #   Set Paths
 #   ------------------------------------------------------------
-pathmunge $GOPATH/bin
 pathmunge $HOME/bin
+
+#   Execute rbenv, which puts ruby shims at front of PATH
+#   ------------------------------------------------------------
+eval "$(rbenv init -)"
 
 #   Java classpath
 #   ------------------------------------------------------------
@@ -156,3 +159,9 @@ alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 #    screensaverDesktop: Run a screensaver on the Desktop
 #   -----------------------------------------------------------------------------------
 alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
+
+[[ -s "/Users/johnsogg/.gvm/scripts/gvm" ]] && source "/Users/johnsogg/.gvm/scripts/gvm"
+
+if [ -f ~/Projects/dotfiles/.git-completion.bash ]; then
+    . ~/Projects/dotfiles/.git-completion.bash
+fi
