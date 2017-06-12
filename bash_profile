@@ -33,7 +33,6 @@ export PS1="$C6\w$C4 $ $P"
 
 #   golang related variables
 export GOPATH=/Users/johnsogg/Projects/go
-export GOROOT=/usr/local/go
 pathmunge $GOPATH/bin
 pathmunge $GOROOT/bin
 
